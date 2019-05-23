@@ -373,18 +373,6 @@ def detail_window(sequence):
 
 
 
-def terse_alarm_change_show():
-    with open('terse_alarm.txt','r')as f:
-        terse_alarm=eval(f.read())
-    with open('terse_alarm_add.txt','r')as f:
-        terse_alarm_add=eval(f.read())
-    if terse_alarm!=terse_alarm_add:
-        terse_alarm_show()
-        with open('terse_alarm_add.txt','w')as f:
-            f.write(str(terse_alarm))
-        
-        
-    root.after(2000,terse_alarm_change_show)
 
 def terse_alarm_show():
     with open('terse_alarm.txt','r')as f:
@@ -635,6 +623,6 @@ Button(root,relief="ridge",image=photo_detail,bd=1,command=lambda:detail_window(
 Button(root,relief="ridge",image=photo_detail,bd=1,command=lambda:detail_window(14)).place(x=start_point+interval*14,y=920)
 Button(root,relief="ridge",image=photo_detail,bd=1,command=lambda:detail_window(15)).place(x=start_point+interval*15,y=920)
 terse_alarm_show()
-terse_alarm_change_show()
+
 root.update_idletasks()
 root.mainloop()
