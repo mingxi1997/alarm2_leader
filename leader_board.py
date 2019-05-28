@@ -628,7 +628,7 @@ Button(root,relief="ridge", bd=10,image=photo_affirm_alarm,command=affirm_alarm)
 
 
 interval=70
-start_point=130
+start_point=138
 Button(root,relief="ridge",image=photo_detail,bd=1,command=lambda:detail_window(0)).place(x=start_point+interval*0,y=920)
 Button(root,relief="ridge",image=photo_detail,bd=1,command=lambda:detail_window(1)).place(x=start_point+interval*1,y=920)
 Button(root,relief="ridge",image=photo_detail,bd=1,command=lambda:detail_window(2)).place(x=start_point+interval*2,y=920)
