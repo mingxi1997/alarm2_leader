@@ -13,13 +13,14 @@ server='http://192.168.1.4'
 def playsound(path):
     subprocess.Popen(['mpg123', '-q', path]).wait()
     
-units_order=['发射一营','发射二营','发射三营','发射四营','发射五营','发射六营','技术一营','技术二营','作战保障营','阵管防卫连','营区大门岗','家属院门岗','油库','机关楼','装备场区','共同训练场']
+units_order=['发射一营','发射二营','发射三营','发射四营','发射五营','发射六营','技术一营','技术二营','作战保障营','综合保障营','通信营','卫生队','阵管防卫连','机关楼','装备场区','共同训练场','营区大门岗','家属院门岗','油库']
 
 def get_command_model():
     command={}
     for unit in units_order:
         command[unit]= {'voice': '0000', 'text': 'BROAD ', 'expand': '', 'command': '0000'}
     command['time']=str(datetime.datetime.now())[:-7]
+    
     return command
 
 def get_recent_command():
@@ -50,17 +51,19 @@ def send_command(command,command_action,command_type):
         if terse_units[i]=='1':
 
             raw_command[unit][command_type]=single_command
-    
     raw_command['time']=str(datetime.datetime.now())[:-7]
     data={'key':'19979476','content':str(raw_command)}
     requests.post(server+'/leader',data=data)
     with open('local_command.txt','w')as f:
         f.write(str(raw_command))
 
+#command=get_command_model()
+#with open('local_command.txt','w')as f:
+#        f.write(str(command))
 
 
 while True:
-  try:
+   try:
      time.sleep(1)
      with open('command_publish.txt','r')as f:
             command=f.read()
@@ -82,8 +85,8 @@ while True:
          if  'publish_text' in command:
              send_command(command,'publish_text','text')
              command_over()
-  except:
-      time.sleep(3)
+   except:
+       pass
              
              
 

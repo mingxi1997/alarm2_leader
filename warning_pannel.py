@@ -3,7 +3,7 @@
 import pygame
 import time
 
-units_order=['发射一营','发射二营','发射三营','发射四营','发射五营','发射六营','技术一营','技术二营','作战保障营','阵管防卫连','营区大门岗','家属院门岗','油库','机关楼','装备场区','共同训练场']
+units_order=['发射一营','发射二营','发射三营','发射四营','发射五营','发射六营','技术一营','技术二营','作战保障营','综合保障营','通信营','卫生队','阵管防卫连','机关楼','装备场区','共同训练场','营区大门岗','家属院门岗','油库']
 
 def get_wire_status():
     with open('terse_affirm.txt','r')as f:
@@ -37,8 +37,10 @@ def py_start():
     f14=pygame.image.load('f14.png')
     f15=pygame.image.load('f15.png')
     f16=pygame.image.load('f16.png')
-    
-    show_units=[f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f11,f12,f13,f14,f15,f16]
+    f17=pygame.image.load('f17.png')
+    f18=pygame.image.load('f18.png')
+    f19=pygame.image.load('f19.png')
+    show_units=[f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f11,f12,f13,f14,f15,f16,f17,f18,f19]
     
     under_show=pygame.image.load('sdjb.png')
        
@@ -47,6 +49,7 @@ def py_start():
     screen.blit(background,(0,0))
     pygame.display.update()
     while show:
+      
         
         screen.blit(under_show,(60,200))
         pygame.display.update()
@@ -74,6 +77,7 @@ def py_start():
     pygame.quit()
 
 while True:
+  try:
     status=get_wire_status()
     show=sum(status)
    
@@ -82,3 +86,5 @@ while True:
         py_start()
     else:
         time.sleep(3)
+  except:
+      time.sleep(2)

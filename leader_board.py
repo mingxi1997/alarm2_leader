@@ -10,11 +10,11 @@ import time
 
 
 
-
+SUM_UNITS=19
     
 def initialize_button_change():
     button_change=[] 
-    for i in range(20):
+    for i in range(SUM_UNITS+4):
         button_change.append(0)
     with open('button_change.txt','w')as f:
         f.write(str(button_change))
@@ -115,7 +115,12 @@ def t15_s():
     image_change(photo6,photo6_s,t15,18)
 def t16_s():
     image_change(photo6,photo6_s,t16,19)
-
+def t17_s():
+    image_change(photo6,photo6_s,t17,19)
+def t18_s():
+    image_change(photo6,photo6_s,t18,19)
+def t19_s():
+    image_change(photo6,photo6_s,t19,19)
 
 
 
@@ -308,8 +313,8 @@ def detail_window(sequence):
     def quit_top():
         top.destroy()
   
-    units_order=['发射一营','发射二营','发射三营','发射四营','发射五营','发射六营','技术一营','技术二营','作战保障营','阵管防卫连','营区大门岗','家属院门岗','油库','机关楼','装备场区','共同训练场']
- 
+    units_order=['发射一营','发射二营','发射三营','发射四营','发射五营','发射六营','技术一营','技术二营','作战保障营','综合保障营','通信营','卫生队','阵管防卫连','机关楼','装备场区','共同训练场','营区大门岗','家属院门岗','油库']
+
     top = Toplevel()
     top.geometry ('1046x703')
     top.resizable(False, False) 
@@ -377,12 +382,9 @@ def detail_window(sequence):
 def terse_alarm_show():
     with open('terse_alarm.txt','r')as f:
         terse_alarm=eval(f.read())
-    interval=83
-    for i in range(16):
-        if terse_alarm[i]==1:
-            Label(root,image=photo_set[i][1],width=58,height=257).place(x=134+i*interval,y=630)
-        if terse_alarm[i]==0:
-            Label(root,image=photo_set[i][0],width=58,height=257).place(x=134+i*interval,y=630)
+    interval=70
+    for i in range(SUM_UNITS):
+        Label(root,image=photo_set[i][0],width=58,height=257).place(x=134+i*interval,y=630)
    
             
 def affirm_alarm():
@@ -449,30 +451,37 @@ photo_u8_r=PhotoImage(file="技术二营-红.png")
 photo_u8_w=PhotoImage(file="技术二营-白.png")
 photo_u9_r=PhotoImage(file="作战保障营-红.png")
 photo_u9_w=PhotoImage(file="作战保障营-白.png")
-photo_u10_r=PhotoImage(file="阵管防卫连-红.png")
-photo_u10_w=PhotoImage(file="阵管防卫连-白.png")
-photo_u11_r=PhotoImage(file="营区大门岗-红.png")
-photo_u11_w=PhotoImage(file="营区大门岗-白.png")
-photo_u12_r=PhotoImage(file="家属院门岗-红.png")
-photo_u12_w=PhotoImage(file="家属院门岗-白.png")
-photo_u13_r=PhotoImage(file="油库-红.png")
-photo_u13_w=PhotoImage(file="油库-白.png")
+photo_u10_r=PhotoImage(file="综合保障营-红.png")
+photo_u10_w=PhotoImage(file="综合保障营-白.png")
+photo_u11_r=PhotoImage(file="通信营-红.png")
+photo_u11_w=PhotoImage(file="通信营-白.png")
+photo_u12_r=PhotoImage(file="卫生队-红.png")
+photo_u12_w=PhotoImage(file="卫生队-白.png")
+photo_u13_r=PhotoImage(file="阵管防卫连-红.png")
+photo_u13_w=PhotoImage(file="阵地防卫连-白.png")
 photo_u14_r=PhotoImage(file="机关楼-红.png")
 photo_u14_w=PhotoImage(file="机关楼-白.png")
 photo_u15_r=PhotoImage(file="装备场区-红.png")
 photo_u15_w=PhotoImage(file="装备场区-白.png")
 photo_u16_r=PhotoImage(file="共同训练场-红.png")
 photo_u16_w=PhotoImage(file="共同训练场-白.png")
+photo_u17_r=PhotoImage(file="营区大门岗-红.png")
+photo_u17_w=PhotoImage(file="营区大门岗-白.png")
+photo_u18_r=PhotoImage(file="家属院门岗-红.png")
+photo_u18_w=PhotoImage(file="家属院门岗-白.png")
+photo_u19_r=PhotoImage(file="油库-红.png")
+photo_u19_w=PhotoImage(file="油库-白.png")
+
 
 photo_set=([[photo_u1_w,photo_u1_r],[photo_u2_w,photo_u2_r],[photo_u3_w,photo_u3_r],[photo_u4_w,photo_u4_r],[photo_u5_w,photo_u6_r],[photo_u6_w,photo_u6_r],
             [photo_u7_w,photo_u7_r],[photo_u8_w,photo_u8_r],[photo_u9_w,photo_u9_r],[photo_u10_w,photo_u10_r],[photo_u11_w,photo_u11_r],[photo_u12_w,photo_u12_r],
-            [photo_u13_w,photo_u13_r],[photo_u14_w,photo_u14_r],[photo_u15_w,photo_u15_r],[photo_u16_w,photo_u16_r]])
+            [photo_u13_w,photo_u13_r],[photo_u14_w,photo_u14_r],[photo_u15_w,photo_u15_r],[photo_u16_w,photo_u16_r],[photo_u17_w,photo_u17_r]
+            ,[photo_u18_w,photo_u18_r],[photo_u19_w,photo_u19_r]])
 
 
 photo_time_bg=PhotoImage(file="校时背景.png")
 photo_time_affirm=PhotoImage(file="确认校准按钮.png")
 photo_time_quit=PhotoImage(file="关闭窗口-文本输入.png")
-
 photo_text_bg=PhotoImage(file="文本框输入背景.png")
 photo_text_read=PhotoImage(file="本地试读按钮.png")
 photo_text_sound_send=PhotoImage(file="语音发送按钮.png")
@@ -514,7 +523,7 @@ c5['image']=photo5
 c5['command']=send_all
 c5.place(x=1540,y=175)
 
-interval=83
+interval=70
 
 t1=Button(root,relief="sunken",width=47,height=48, bd=0)
 t1['image']=photo6
@@ -596,6 +605,20 @@ t16['image']=photo6
 t16['command']=t16_s
 t16.place(x=140+interval*15,y=550)
 
+t17=Button(root,relief="sunken",width=47,height=48, bd=0)
+t17['image']=photo6
+t17['command']=t17_s
+t17.place(x=140+interval*16,y=550)
+
+t18=Button(root,relief="sunken",width=47,height=48, bd=0)
+t18['image']=photo6
+t18['command']=t18_s
+t18.place(x=140+interval*17,y=550)
+
+t19=Button(root,relief="sunken",width=47,height=48, bd=0)
+t19['image']=photo6
+t19['command']=t19_s
+t19.place(x=140+interval*18,y=550)
 
 
 Button(root,relief="ridge", bd=10,image=photo_time,command=time_window).place(x=1555,y=550)
@@ -604,7 +627,7 @@ Button(root,relief="ridge", bd=10,image=photo_affirm_alarm,command=affirm_alarm)
 
 
 
-interval=83
+interval=70
 start_point=130
 Button(root,relief="ridge",image=photo_detail,bd=1,command=lambda:detail_window(0)).place(x=start_point+interval*0,y=920)
 Button(root,relief="ridge",image=photo_detail,bd=1,command=lambda:detail_window(1)).place(x=start_point+interval*1,y=920)
@@ -622,6 +645,10 @@ Button(root,relief="ridge",image=photo_detail,bd=1,command=lambda:detail_window(
 Button(root,relief="ridge",image=photo_detail,bd=1,command=lambda:detail_window(13)).place(x=start_point+interval*13,y=920)
 Button(root,relief="ridge",image=photo_detail,bd=1,command=lambda:detail_window(14)).place(x=start_point+interval*14,y=920)
 Button(root,relief="ridge",image=photo_detail,bd=1,command=lambda:detail_window(15)).place(x=start_point+interval*15,y=920)
+Button(root,relief="ridge",image=photo_detail,bd=1,command=lambda:detail_window(16)).place(x=start_point+interval*16,y=920)
+Button(root,relief="ridge",image=photo_detail,bd=1,command=lambda:detail_window(17)).place(x=start_point+interval*17,y=920)
+Button(root,relief="ridge",image=photo_detail,bd=1,command=lambda:detail_window(18)).place(x=start_point+interval*18,y=920)
+
 terse_alarm_show()
 
 root.update_idletasks()
