@@ -413,6 +413,8 @@ root=Tk()
 root.geometry('1920x1080')
 root.title("高级用户终端")
 #root.attributes('-fullscreen',True)
+root.wm_attributes('-topmost',0)
+
 
 photo=PhotoImage(file="高级用户终端背景.png")
 img= Label(root,image=photo)
