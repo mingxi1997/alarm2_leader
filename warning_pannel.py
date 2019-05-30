@@ -23,7 +23,7 @@ def py_start(show):
         #os.environ['SDL_VIDEO_WINDOW_POS'] = '{},{}'.format(200,300)
 
         pygame.init()
-        screen = pygame.display.set_mode((1920,1080), pygame.NOFRAME)
+        screen = pygame.display.set_mode((1920,1080), pygame.FULLSCREEN)
         background=pygame.image.load('warning_bg.png')
 
     
