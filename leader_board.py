@@ -116,11 +116,11 @@ def t15_s():
 def t16_s():
     image_change(photo6,photo6_s,t16,19)
 def t17_s():
-    image_change(photo6,photo6_s,t17,19)
+    image_change(photo6,photo6_s,t17,20)
 def t18_s():
-    image_change(photo6,photo6_s,t18,19)
+    image_change(photo6,photo6_s,t18,21)
 def t19_s():
-    image_change(photo6,photo6_s,t19,19)
+    image_change(photo6,photo6_s,t19,22)
 
 
 
