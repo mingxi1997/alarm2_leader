@@ -8,7 +8,7 @@ import threading
 import os
 import time
 
-
+time.sleep(2)
 
 SUM_UNITS=19
     
@@ -196,7 +196,7 @@ def time_window():
     year,month,day,hour,minit=get_time()
     
     
-    Label(top,text=year+' 年'+month+' 月'+day+' 日'+hour+' 时'+minit+' 分',bg='#C1C1C1',width=30,height=2,font=('Times','25')).place(x=150,y=35)
+    Label(top,text=year+' 年'+month+' 月'+day+' 日'+hour+' 时'+minit+' 分',bg='#C1C1C1',width=30,height=2,font=('Times','22')).place(x=200,y=35)
     
     
     
@@ -299,8 +299,8 @@ def text_window():
    
     
     
-    t1=Text(top,width=74,height=11,font=('song','19'))
-    t1.place(x=30,y=33) 
+    t1=Text(top,width=55,height=9,font=('song','19'))
+    t1.place(x=36,y=37) 
 
     interval=226
     Button(top,relief="ridge",image=photo_text_read,bd=2,command=read_text,width=220,height=68).place(x=28,y=350)
