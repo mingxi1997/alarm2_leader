@@ -330,7 +330,7 @@ def detail_window(sequence):
     
     Label(top,image=photo_detail_bg).place(x=0,y=0) 
     
-    Label(top,text=units_order[sequence],width=43,height=1,font=('song',24)).place(x=236,y=40) 
+    Label(top,text=units_order[sequence],width=43,height=1,font=('song',20)).place(x=236,y=40) 
     
     text_type={'BROAD':'仅文字显示','ALARM':'语音朗读'}
     
@@ -341,9 +341,9 @@ def detail_window(sequence):
     unit_text=local_command[units_order[sequence]]['text']
     unit_command=local_command[units_order[sequence]]['command']
     
-    Label(top,text=text_type[unit_text[:5]],width=43,height=1,font=('song',24)).place(x=236,y=105)
+    Label(top,text=text_type[unit_text[:5]],width=43,height=1,font=('song',20)).place(x=236,y=105)
     
-    Label(top,text=unit_text[5:],width=80,height=7,font=('song',14),wraplength = 700,justify = 'left').place(x=245,y=173) 
+    Label(top,text=unit_text[5:],width=60,height=6,font=('song',14),wraplength = 700,justify = 'left').place(x=244,y=173) 
     
     interval=80
     if unit_command[0]=='1':
@@ -413,7 +413,7 @@ root=Tk()
 root.geometry('1920x1080')
 root.title("高级用户终端")
 #root.attributes('-fullscreen',True)
-root.wm_attributes('-topmost',0)
+#root.wm_attributes('-topmost',0)
 
 
 photo=PhotoImage(file="高级用户终端背景.png")
